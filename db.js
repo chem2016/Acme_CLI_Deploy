@@ -10,7 +10,7 @@ if(!process.env.SECRET){
     console.log('ex--->', ex)
   }
 }else{
-  console.log('already has process.env.SECRET setup: ', process.env.SECRET)
+  console.log('already has process.env.SECRET setup: ', typeof process.env.SECRET)
 }
 
 const User = conn.define('user', {
