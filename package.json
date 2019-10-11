@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha spec.js",
-    "test:dev": "postgres://postgres@localhost/my_db mocha spec.js --watch",
+    "test:dev": "postgres://localhost/my_db mocha spec.js --watch",
     "start": "node server.js",
     "start:dev": "npm run webpack & SECRET=FOO nodemon server.js --ignore dist/ --ignore src/",
     "webpack": "webpack --mode=development --watch"
