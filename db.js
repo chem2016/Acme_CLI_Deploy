@@ -6,9 +6,8 @@ const jwt = require('jwt-simple');
 try{
   Object.assign(process.env, require('./.env.js'))
 }catch(ex){
-  console.log(ex)
+  console.log('ex--->', ex)
 }
-
 
 const User = conn.define('user', {
   id: {
