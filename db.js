@@ -3,11 +3,11 @@ const { UUID, UUIDV4, STRING } = Sequelize;
 const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/Acme_CLI_deploy');
 const jwt = require('jwt-simple');
 
-try{
-  Object.assign(process.env, require('./.env.js'))
-}catch(ex){
-  console.log('ex--->', ex)
-}
+// try{
+//   Object.assign(process.env, require('./.env.js'))
+// }catch(ex){
+//   console.log('ex--->', ex)
+// }
 
 const User = conn.define('user', {
   id: {
