@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha spec.js",
+    "test:dev": "DATABASE_URL=postgres://postgres@localhost/circle_test mocha spec.js --watch",
     "start": "node server.js",
     "start:dev": "npm run webpack & SECRET=FOO nodemon server.js --ignore dist/ --ignore src/",
     "webpack": "webpack --mode=development --watch"
@@ -30,6 +31,8 @@
     "@babel/preset-react": "^7.0.0",
     "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
