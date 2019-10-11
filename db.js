@@ -3,6 +3,13 @@ const { UUID, UUIDV4, STRING } = Sequelize;
 const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/Acme_CLI_deploy');
 const jwt = require('jwt-simple');
 
+try{
+  Object.assign(process.env, require('./.env.js'))
+}catch(ex){
+  console.log(ex)
+}
+
+
 const User = conn.define('user', {
   id: {
     type: UUID,
@@ -34,6 +41,7 @@ const syncAndSeed = async()=> {
   const [moe, larry, lucy, ethyl] = await Promise.all(
       users.map( user => User.create({ email: `${user.name}@gmail.com`, password: user.name.toUpperCase()}))
   );
+  return { moe, larry, lucy, ethyl}
 };
 
 User.authenticate = function(credentials){
